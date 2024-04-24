@@ -44,7 +44,7 @@ export default function TypeWriter({ text, duration, className, ...props }: Type
             if (!trackerRef.current) return;
 
             trackerRef.current.style.opacity = "0";
-        }, durationMs + 2000)
+        }, durationMs + 1600)
     }, [text, duration])
 
     return (
