@@ -44,7 +44,7 @@ export default function Home() {
                 linkElement.style.opacity = "100";
                 linkElement.style.transform = "translateY(0)";
             }
-        }, 500);
+        }, 250);
     }
 
     return (
