@@ -38,7 +38,7 @@ export default function Home() {
         setTimeout(() => {
             if (!linksRef.current) return;
             linksRef.current.classList.add("animate-appear");
-        }, 1000)
+        }, 1200)
 
     }
 
@@ -46,7 +46,7 @@ export default function Home() {
         <main className="grid place-items-center h-full bg-inherit">
             <div className="flex flex-col gap-5 items-center">
                 <TypeWriter text="Kryp.Dev" duration={1} onWritingEnd={onWritingEnd} className="text-6xl md:text-8xl select-none" />
-                <div ref={linksRef} className="flex gap-8 justify-evenly max-h-0 h-auto opacity-0 duration-[2s] transition-max-height">
+                <div ref={linksRef} className="flex gap-8 justify-evenly max-h-0 h-auto opacity-0 duration-[3s] transition-max-height">
                     {links.map((link, index) => (
                         <div key={index} className="border-2 p-3 rounded-xl cursor-pointer hover:animate-shake">
                             <a href={link.url} target="_blank">
