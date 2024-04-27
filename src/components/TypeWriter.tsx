@@ -27,11 +27,6 @@ export default function TypeWriter({ text, duration, onWritingEnd, className, ..
 
         for (let i = 0; i < text.length; i++) {
             const charSpeed = (durationMs / text.length) * (i + 1);
-            let char = text[i];
-
-            if (char === " ") {
-                char += text[i + 1];
-            }
 
             setTimeout(() => {
                 if (!displayRef.current) return;
