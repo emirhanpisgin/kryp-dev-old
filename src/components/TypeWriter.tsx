@@ -8,7 +8,7 @@ import { twMerge } from "tw-merge";
 interface TypeWriterProps extends React.ComponentProps<'div'> {
     text: string;
     duration: number;
-    onWritingEnd: () => any;
+    onWritingEnd?: () => any;
 }
 
 function cn(...inputs: ClassValue[]) {
@@ -27,14 +27,21 @@ export default function TypeWriter({ text, duration, onWritingEnd, className, ..
 
         for (let i = 0; i < text.length; i++) {
             const charSpeed = (durationMs / text.length) * (i + 1);
+            let char = text[i];
+
+            if (char === " ") {
+                char += text[i + 1];
+            } else if (text[i - 1] === " ") {
+                continue;
+            }
 
             setTimeout(() => {
                 if (!displayRef.current) return;
 
                 if (i === 0) {
-                    displayRef.current.innerText = text[i];
+                    displayRef.current.innerText = char;
                 } else {
-                    displayRef.current.innerText += text[i];
+                    displayRef.current.innerText += char;
                 }
 
             }, charSpeed);
@@ -46,17 +53,19 @@ export default function TypeWriter({ text, duration, onWritingEnd, className, ..
             trackerRef.current.style.opacity = "0";
         }, durationMs + 1600)
 
-        setTimeout(() => {
-            onWritingEnd();
-        }, duration * 1000);
+        if (onWritingEnd) {
+            setTimeout(() => {
+                onWritingEnd();
+            }, duration * 1000);
+        }
     }, [text, duration])
 
     return (
         <div className={cn("whitespace-pre-wrap flex relative w-min", className)} {...props}>
-            <div ref={displayRef}>
+            <div ref={displayRef} className="w-max">
                 {" "}
             </div>
-            <div ref={trackerRef} className="animate-blink flex items-center transition-opacity absolute -right-8">
+            <div ref={trackerRef} className="animate-blink flex items-center transition-opacity absolute -right-[0.4em] bottom-0">
                 |
             </div>
         </div>
