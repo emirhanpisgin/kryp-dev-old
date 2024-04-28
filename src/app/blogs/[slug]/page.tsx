@@ -5,9 +5,15 @@ import { notFound } from "next/navigation";
 async function getDocFromParams(slug: string) {
     const doc = allDocs.find((doc) => doc.slugAsParams === slug);
 
-    if(!doc) notFound();
+    if (!doc) notFound();
 
     return doc;
+}
+
+export async function generateStaticParams() {
+    return allDocs.map((doc) => ({
+        slug: doc.slug,
+    }));
 }
 
 export default async function Blog({ params }: { params: { slug: string } }) {
