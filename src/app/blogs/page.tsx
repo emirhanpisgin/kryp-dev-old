@@ -1,5 +1,11 @@
 import { allDocs } from "contentlayer/generated";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+    title: 'Kryp.Dev Blogs',
+    description: 'My Blogs',
+}
 
 export default async function Blogs() {
     return (

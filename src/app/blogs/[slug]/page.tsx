@@ -11,6 +11,15 @@ async function getDocFromParams(slug: string) {
     return doc;
 }
 
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+    const doc = await getDocFromParams(params.slug);
+
+    return {
+        title: "Kryp.Dev Blogs - " + doc.title,
+        description: doc.description
+    }
+}
+
 export async function generateStaticParams() {
     return allDocs.map((doc) => ({
         slug: doc.slugAsParams,
