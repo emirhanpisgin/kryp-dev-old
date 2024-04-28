@@ -2,11 +2,13 @@
 
 import { DiscordIcon, GithubIcon, TwitchIcon, YoutubeIcon } from "@/components/Icons";
 import TypeWriter from "@/components/TypeWriter";
+import Link from "next/link";
 import { useRef } from "react";
 
 export default function Home() {
     const linksRef = useRef<HTMLDivElement>(null);
-
+    const blogsRef = useRef<HTMLDivElement>(null);
+    
     const links = [
         {
             title: "Twitch",
@@ -31,19 +33,21 @@ export default function Home() {
     ]
 
     function onWritingEnd() {
-        if (!linksRef.current) return;
+        if (!linksRef.current || !blogsRef.current) return;
 
         linksRef.current.style.maxHeight = "100vh";
 
         const linkElements = linksRef.current.childNodes as NodeListOf<HTMLDivElement>;
 
         setTimeout(() => {
+            if(!blogsRef.current) return;
             for (let i = 0; i < linkElements.length; i++) {
                 const linkElement = linkElements.item(i);
 
                 linkElement.style.opacity = "100";
                 linkElement.style.transform = "translateY(0)";
             }
+            blogsRef.current.style.opacity = "100";
         }, 250);
     }
 
@@ -59,6 +63,9 @@ export default function Home() {
                             </a>
                         </div>
                     ))}
+                </div>
+                <div className="text-2xl opacity-0 transition-opacity delay-1000 duration-500" ref={blogsRef}>
+                    Wanna check out my <Link className="text-blue-400 underline decoration-transparent hover:decoration-current transition-colors duration-300" href={"/blogs"}>blogs?</Link>
                 </div>
             </div>
         </main>
