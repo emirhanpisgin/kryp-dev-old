@@ -12,7 +12,7 @@ async function getDocFromParams(slug: string) {
 
 export async function generateStaticParams() {
     return allDocs.map((doc) => ({
-        slug: doc.slug,
+        slug: doc.slugAsParams,
     }));
 }
 
