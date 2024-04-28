@@ -1,18 +1,12 @@
 "use client";
 
-import clsx from "clsx";
-import { ClassValue } from "clsx";
+import { cn } from "@/utils";
 import React, { useEffect, useRef } from "react";
-import { twMerge } from "tw-merge";
 
 interface TypeWriterProps extends React.ComponentProps<'div'> {
     text: string;
     duration: number;
     onWritingEnd?: () => any;
-}
-
-function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs));
 }
 
 export default function TypeWriter({ text, duration, onWritingEnd, className, ...props }: TypeWriterProps) {
