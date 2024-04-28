@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 html, body {
-    @apply min-h-screen h-screen bg-black text-white
+    @apply min-h-screen h-screen bg-black text-white flex flex-col items-center
 }

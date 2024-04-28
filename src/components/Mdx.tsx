@@ -8,7 +8,13 @@ interface MdxProps {
 
 const components = {
     h1: ({ className, ...props }: React.ComponentProps<'h1'>) => (
-        <h1 className={cn("",className)} {...props}/>
+        <h1 className={cn("text-3xl md:text-5xl my-3 md:my-7", className)} {...props} />
+    ),
+    h2: ({ className, ...props }: React.ComponentProps<'h1'>) => (
+        <h2 className={cn("text-3xl", className)} {...props} />
+    ),
+    p: ({ className, ...props }: React.ComponentProps<'h1'>) => (
+        <p className={cn("text-xl my-2 w-full", className)} {...props} />
     )
 }
 

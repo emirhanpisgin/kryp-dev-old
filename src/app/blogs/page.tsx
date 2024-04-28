@@ -3,10 +3,22 @@ import Link from "next/link";
 
 export default async function Blogs() {
     return (
-        <div>
-            {allDocs.map((doc, index) => (
-                <Link key={index} href={`/blogs/${doc.slugAsParams}`}>{doc.title}</Link>
-            ))}
+        <div className="flex items-center flex-col">
+            <div className="text-6xl md:text-8xl py-7">
+                Kryp.Dev
+            </div>
+            <div className="mt-16 text-5xl">
+                My Blogs
+                <div className="text-3xl mt-5">
+                    {allDocs.map((doc, index) => (
+                        <div key={index} className="text-blue-400">
+                            • <Link href={doc.slug} className="underline decoration-transparent hover:decoration-current transition-colors">
+                                {doc.title}
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }
