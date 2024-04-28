@@ -32,6 +32,10 @@ export const Doc = defineDocumentType(() => ({
 			type: "boolean",
 			default: true,
 		},
+		author: {
+			type: "string",
+			default: "Kryp Arnold",
+		},
 	},
 	computedFields,
 }));
