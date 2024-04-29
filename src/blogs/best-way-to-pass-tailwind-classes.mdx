@@ -1,0 +1,79 @@
+---
+title: Best Way To Pass Tailwind Classes In Your React Project
+description: This is a blog post about showing you the proper way of passing tailwind classes inside your react components.
+---
+
+# Best Way To Pass Tailwind Classes Inside Your React Components
+
+## Introduction
+
+Hello people, in this blog post i will show you the 
+best/proper way to pass tailwind classes between your 
+react components as props. Let's say you have a basic
+react project with tailwind as styling tool. Most people
+does it like this.
+
+```tsx
+
+interface MyComponentProps {
+    className?: string;
+}
+
+export default function MyComponent({ className }: MyComponentProps) {
+    return (
+        <div className={"your-initial-classes " + className}>
+            Lets pretend this is a useful content.
+        </div>
+    );
+}
+
+```
+
+This is a working way yet not practical and it will slow you down as your app grows.
+
+## Using clsx and tw-merge
+
+For this solution first we need to install two packages.
+
+```bash
+
+npm install tw-merge clsx
+
+```
+
+After installing the packages we need to define a function like this.
+
+```tsx
+
+import clsx, { ClassValue } from "clsx";
+import { twMerge } from "tw-merge";
+
+function cn(...inputs: ClassValue[]) {
+	return twMerge(clsx(inputs));
+}
+
+```
+
+We made our function and now we can use this util function wherever we want like this.
+
+```tsx
+
+import { cn } from "@/utils.ts";
+
+interface MyComponentProps {
+    className?: string;
+}
+
+export default function MyComponent({ className }: MyComponentProps) {
+    return (
+        <div className={cn("your-initial-classes", className)}>
+            Lets pretend this is a useful content.
+        </div>
+    );
+}
+
+```
+
+At first try it might seem like it doesn't do much work 
+for you but having a consistent syntax for your classes
+is really important for both of your productivity and time.
