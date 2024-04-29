@@ -36,6 +36,10 @@ export const Doc = defineDocumentType(() => ({
 			type: "string",
 			default: "Kryp Arnold",
 		},
+		createdAt: {
+			type: "date",
+			default: new Date().toISOString(),
+		},
 	},
 	computedFields,
 }));
