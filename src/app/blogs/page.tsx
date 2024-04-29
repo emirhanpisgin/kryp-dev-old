@@ -15,8 +15,8 @@ export default async function Blogs() {
             <Link href={"/"} className="text-6xl md:text-8xl py-7">
                 Kryp.Dev
             </Link>
-            <div className="mt-16">
-                <div className="text-5xl text-center">
+            <div className="mt-5">
+                <div className="text-5xl text-center py-3">
                     My Recent Blogs
                 </div>
                 <div className="mt-5 flex flex-col md:gap-6">
