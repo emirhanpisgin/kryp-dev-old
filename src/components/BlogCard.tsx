@@ -17,7 +17,7 @@ export default function BlogCard({ doc }: BlogCardProps) {
     }, [doc.createdAt])
 
     return (
-        <Link href={doc.slug} className="border-b-2 p-3 md:rounded-xl md:border-2 flex flex-col first:border-t-2">
+        <Link href={doc.slug} className="border-b-2 p-3 md:rounded-xl md:border-2 flex flex-col first:border-t-2 hover:shadow-[0_0_10px_#ffffff] transition-shadow duration-300">
             <div className="text-2xl my-1">
                 {doc.title}
             </div>
