@@ -33,7 +33,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
     const doc = await getDocFromParams(params.slug);
 
     return (
-        <MaxWidthWrapper className="pt-6 md:pt-16 flex items-start px-5">
+        <MaxWidthWrapper className="pt-6 md:pt-16 flex items-start px-5 pb-64">
             <div className="flex flex-col w-full">
                 <div className="text-2xl md:text-5xl font-semibold relative">
                     <div className="size-min block md:absolute -left-[calc(1em+0.2em)] top-0">
