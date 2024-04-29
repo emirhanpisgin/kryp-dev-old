@@ -2,6 +2,7 @@ import BlogCard from "@/components/BlogCard";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { allDocs } from "contentlayer/generated";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
     title: 'Kryp.Dev Blogs',
@@ -11,9 +12,9 @@ export const metadata: Metadata = {
 export default async function Blogs() {
     return (
         <MaxWidthWrapper className="flex items-center flex-col">
-            <div className="text-6xl md:text-8xl py-7">
+            <Link href={"/"} className="text-6xl md:text-8xl py-7">
                 Kryp.Dev
-            </div>
+            </Link>
             <div className="mt-16">
                 <div className="text-5xl text-center">
                     My Recent Blogs
@@ -22,7 +23,7 @@ export default async function Blogs() {
                     {allDocs.map((doc, index) => (
                         <BlogCard doc={doc} key={index} />
                     ))}
-                </div>  
+                </div>
             </div>
         </MaxWidthWrapper>
     );
