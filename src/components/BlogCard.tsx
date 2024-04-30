@@ -18,10 +18,10 @@ export default function BlogCard({ doc }: BlogCardProps) {
 
     return (
         <Link href={doc.slug} className="border-b-2 p-3 md:rounded-xl md:border-2 flex flex-col first:border-t-2 hover:shadow-[0_0_10px_#ffffff] transition-shadow duration-300">
-            <div className="text-2xl my-1">
+            <div className="text-2xl my-1 leading-7 md:leading-normal">
                 {doc.title}
             </div>
-            <div className="whitespace-pre-wrap text-xl my-1">
+            <div className="whitespace-pre-wrap text-xl my-1 leading-6 md:leading-normal">
                 {doc.description}
             </div>
             <div className="flex justify-between">
