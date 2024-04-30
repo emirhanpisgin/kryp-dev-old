@@ -40,6 +40,9 @@ export const Doc = defineDocumentType(() => ({
 			type: "date",
 			default: new Date().toISOString(),
 		},
+		tags: {
+			type: "string",
+		},
 	},
 	computedFields,
 }));
