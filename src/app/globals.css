@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    border-color: var(--primary-text);
+}
+
 html, body {
-    @apply min-h-screen h-screen bg-black text-white flex flex-col items-center
+    @apply min-h-screen h-screen bg-primary-bg text-primary-text flex flex-col items-center
 }

@@ -22,8 +22,24 @@ const config: Config = {
 				appear: "appear 1s forwards",
 				shake: "shake 0.7s ease-in-out forwards",
 			},
+			colors: {
+				"primary-text": "hsl(var(--primary-text))",
+				"primary-bg": "hsl(var(--primary-bg))",
+			},
 		},
 	},
+	safelist: [
+		"border-[hsl(0_0%_100%)]",
+		"border-[hsl(0_0%_0%)]",
+        "border-[hsl(220_13%_91%)]",
+        "border-[hsl(291_93%_83%)]",
+		"bg-[hsl(0_0%_100%)]",
+		"bg-[hsl(0_0%_0%)]",
+        "bg-[hsl(220_13%_91%)]",
+        "bg-[hsl(215_16%_47%)]",
+        "bg-[hsl(291_93%_83%)]",
+        "bg-[hsl(240_5%_26%)]",
+	],
 	plugins: [],
 };
 

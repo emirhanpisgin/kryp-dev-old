@@ -9,7 +9,7 @@ My personel website.
 - [x] Add blogs page with md support
 - [ ] Add Kryp-O-Meter
 - [ ] Add posts page (tweet)
-- [ ] Add color theme changing with 3-4 new themes
+- [x] Add color theme changing with 3-4 new themes
 
 ## Future Blogs
 
