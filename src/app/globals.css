@@ -3,9 +3,22 @@
 @tailwind utilities;
 
 * {
-    border-color: var(--primary-text);
+	border-color: var(--primary-text);
 }
 
-html, body {
-    @apply min-h-screen h-screen bg-primary-bg text-primary-text flex flex-col items-center
+html,
+body {
+	@apply min-h-screen h-screen bg-primary-bg text-primary-text flex flex-col items-center;
+}
+
+::-webkit-scrollbar {
+	@apply w-3 rounded-lg
+}
+
+::-webkit-scrollbar-track {
+	background: var(--primary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+	background: hsl(var(--primary-text));
 }
