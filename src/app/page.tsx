@@ -1,6 +1,7 @@
 "use client";
 
 import { DiscordIcon, GithubIcon, TwitchIcon, YoutubeIcon } from "@/components/Icons";
+import Topbar from "@/components/Topbar";
 import TypeWriter from "@/components/TypeWriter";
 import Link from "next/link";
 import { useRef } from "react";
@@ -53,6 +54,7 @@ export default function Home() {
 
     return (
         <main className="grid place-items-center h-full bg-inherit">
+            <Topbar />
             <div className="flex flex-col gap-5 items-center">
                 <TypeWriter text="Kryp.Dev" duration={0.9} onWritingEnd={onWritingEnd} className="text-6xl md:text-8xl select-none" />
                 <div ref={linksRef} className="flex gap-8 justify-evenly max-h-0 h-auto duration-[3s] transition-max-height">
