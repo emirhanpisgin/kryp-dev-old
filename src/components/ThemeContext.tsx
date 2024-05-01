@@ -1,5 +1,6 @@
 "use client"
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 export enum ThemeKeys {
     DARK = "dark",
@@ -29,7 +30,7 @@ export const themes: Themes = {
         bgColor: "215 16% 47%"
     },
     "gray": {
-        textColor:"291 93% 83%",
+        textColor: "291 93% 83%",
         bgColor: "240 5% 26%"
     }
 }
@@ -41,19 +42,11 @@ export type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [theme, setTheme] = useState<ThemeKeys>(ThemeKeys.DARK);
+export const ThemeProvider = ({ children, initialTheme }: { children: ReactNode, initialTheme: ThemeKeys }) => {
+    const [theme, setTheme] = useState<ThemeKeys>(initialTheme);
 
     useEffect(() => {
-        const storedTheme = localStorage.getItem("theme") as ThemeKeys;
-
-        if (storedTheme) {
-            setTheme(storedTheme);
-        }
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem("theme", theme);
+        Cookies.set("theme", theme);
 
         const root = document.documentElement;
 

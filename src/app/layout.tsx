@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Ubuntu_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeContext";
+import { cookies } from "next/headers";
 
 const ubuntuMono = Ubuntu_Mono({ weight: "400", subsets: ["latin"] });
 
@@ -17,7 +18,8 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <ThemeProvider>
+            {/*@ts-ignore */}
+            <ThemeProvider initialTheme={cookies().get("theme")?.value ?? "dark"}>
                 <body className={ubuntuMono.className}>{children}</body>
             </ThemeProvider>
         </html>
