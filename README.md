@@ -19,6 +19,6 @@ My personel website.
 
 ## Mini Changes
 
-- [x] Add tags property to blogs with styling
+- [ ] Add tags property to blogs with styling
 - [x] Add source link to home page
 - [ ] Add copy button to code tags
