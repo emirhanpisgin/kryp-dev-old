@@ -7,8 +7,9 @@ export default function ChangeTheme() {
     const { setTheme, resolvedTheme } = useTheme();
 
     return (
-        <div className="relative size-8">
-            {resolvedTheme === "light" ? <Sun className="size-8 text-black" onClick={() => setTheme("dark")} /> : <Moon className="size-8" onClick={() => setTheme("light")} />}
+        <div className="relative size-8 cursor-pointer">
+            <Sun className={`size-8 text-black transition-opacity ${resolvedTheme === "light" ? "opacity-100" : "opacity-0"}`} onClick={() => setTheme("dark")} />
+            <Moon className={`size-8 transition-opacity ${resolvedTheme === "dark" ? "opacity-100" : "opacity-0"}`} onClick={() => setTheme("light")} />
         </div>
     );
 }
