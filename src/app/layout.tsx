@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Ubuntu_Mono } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/components/Providers";
 
 const ubuntuMono = Ubuntu_Mono({ weight: "400", subsets: ["latin"] });
 
@@ -15,8 +16,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={ubuntuMono.className}>{children}</body>
+        <html lang="en" suppressHydrationWarning>
+            <body className={ubuntuMono.className}>
+                <Providers>
+                    {children}
+                </Providers>
+            </body>
         </html>
     );
 }

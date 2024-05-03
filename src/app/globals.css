@@ -4,7 +4,15 @@
 
 html,
 body {
-	@apply min-h-screen h-screen bg-black text-white flex flex-col items-center;
+	@apply min-h-screen h-screen  flex flex-col items-center;
+}
+
+body {
+	@apply bg-white text-black dark:bg-black dark:text-white;
+}
+
+* {
+    @apply border-black dark:border-white;
 }
 
 ::-webkit-scrollbar {

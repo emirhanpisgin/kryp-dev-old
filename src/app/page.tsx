@@ -59,7 +59,7 @@ export default function Home() {
                 <TypeWriter text="Kryp.Dev" duration={0.9} onWritingEnd={onWritingEnd} className="text-6xl md:text-8xl select-none" />
                 <div ref={linksRef} className="flex gap-8 justify-evenly max-h-0 h-auto duration-[3s] transition-max-height">
                     {links.map((link, index) => (
-                        <div key={index} style={{ transitionDelay: `${(index + 1) * 200}ms` }} className="border-2 p-3 -translate-y-1/3 rounded-xl cursor-pointer duration-500 hover:animate-shake opacity-0 transition-all">
+                        <div key={index} style={{ transitionDelay: `${(index + 1) * 200}ms` }} className="border-2 p-3 -translate-y-1/3 rounded-xl cursor-pointer duration-500 hover:animate-shake opacity-0 transition-[transform,opacity]">
                             <a href={link.url} target="_blank">
                                 <link.iconComponent className="size-8 md:size-12" />
                             </a>
