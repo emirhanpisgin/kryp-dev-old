@@ -8,8 +8,8 @@ export default function ChangeTheme() {
 
     return (
         <div className="relative size-8 cursor-pointer">
-            <Sun className={`size-8 text-black transition-opacity ${resolvedTheme === "light" ? "opacity-100" : "opacity-0"}`} onClick={() => setTheme("dark")} />
-            <Moon className={`size-8 transition-opacity ${resolvedTheme === "dark" ? "opacity-100" : "opacity-0"}`} onClick={() => setTheme("light")} />
+            <Sun className={`size-8 text-black transition-opacity absolute top-0 left-0 ${resolvedTheme === "light" ? "opacity-100" : "opacity-0"}`} onClick={() => setTheme("dark")} />
+            <Moon className={`size-8 transition-opacity absolute top-0 left-0 ${resolvedTheme === "dark" ? "opacity-100" : "opacity-0"}`} onClick={() => setTheme("light")} />
         </div>
     );
 }
