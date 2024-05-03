@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Ubuntu_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeContext";
 
 const ubuntuMono = Ubuntu_Mono({ weight: "400", subsets: ["latin"] });
 
@@ -17,9 +16,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <ThemeProvider>
-                <body className={ubuntuMono.className}>{children}</body>
-            </ThemeProvider>
+            <body className={ubuntuMono.className}>{children}</body>
         </html>
     );
 }
