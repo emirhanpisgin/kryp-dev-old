@@ -17,11 +17,11 @@ export default function BlogCard({ doc }: BlogCardProps) {
     }, [doc.createdAt])
 
     return (
-        <Link href={doc.slug} className="border-b-2 p-3 md:rounded-xl md:border-2 gap-3 flex flex-col first:border-t-2 hover:shadow-[0_0_10px_#ffffff] transition-shadow duration-300">
-            <div className="text-2xl leading-7 md:leading-normal">
+        <Link href={doc.slug} className="border-b-2 p-3 md:rounded-xl md:border-2 gap-2 md:gap-3 flex flex-col first:border-t-2 hover:shadow-[0_0_10px_#ffffff] transition-shadow duration-300">
+            <div className="text-xl md:text-2xl leading-7 md:leading-normal">
                 {doc.title}
             </div>
-            <div className="whitespace-pre-wrap text-xl leading-6 md:leading-normal">
+            <div className="whitespace-pre-wrap text-lg md:text-xl leading-6 md:leading-normal">
                 {doc.description}
             </div>
             <div className="flex justify-between">
@@ -33,12 +33,12 @@ export default function BlogCard({ doc }: BlogCardProps) {
                 </div>
                 <div className="flex items-center">
                     <ClockIcon className="size-5 mr-1" />
-                    {timePassed(new Date(doc.createdAt))}
+                    {timeStamp ?? timePassed(new Date(doc.createdAt))}
                 </div>
             </div>
             {doc.tags?.length && <div className="flex gap-3">
-                {doc.tags?.split(" ").map((tag, index) => (
-                    <div key={index} className="border-2 p-1 rounded-xl">
+                {doc.tags.split(" ").map((tag, index) => (
+                    <div key={index} className="p-1 text-sm md:text-base rounded-xl">
                         {tag}
                     </div>
                 ))}
