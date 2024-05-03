@@ -20,6 +20,7 @@ const config: Config = {
 			animation: {
 				blink: "blink ease-out 0.8s infinite",
 				appear: "appear 1s forwards",
+				showup: "appear 0.3s forwards",
 				shake: "shake 0.7s ease-in-out forwards",
 			},
 		},
