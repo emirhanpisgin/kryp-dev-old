@@ -10,6 +10,7 @@ My personel website.
 - [ ] Add Kryp-O-Meter
 - [ ] Add posts page (tweet)
 - [ ] Add color theme changing with 3-4 new themes
+- [ ] Move all content to prisma db
 
 ## Future Blogs
 
@@ -22,3 +23,4 @@ My personel website.
 - [ ] Add tags property to blogs with styling
 - [x] Add source link to home page
 - [ ] Add copy button to code tags
+- [ ] Add fade-in animation to blogs
