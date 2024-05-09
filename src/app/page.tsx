@@ -53,7 +53,7 @@ export default function Home() {
     }
 
     return (
-        <main className="grid place-items-center h-full bg-inherit">
+        <main className="grid place-items-center h-screen bg-inherit">
             <Topbar />
             <div className="flex flex-col gap-5 items-center">
                 <TypeWriter text="Kryp.Dev" duration={0.9} onWritingEnd={onWritingEnd} className="text-6xl md:text-8xl select-none" />

@@ -2,17 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
 body {
-	@apply min-h-screen h-screen  flex flex-col items-center;
-}
-
-body {
-	@apply bg-white text-black dark:bg-black dark:text-white;
+	@apply flex flex-col items-center w-full bg-white text-black dark:bg-black dark:text-white;
 }
 
 * {
     @apply border-black dark:border-white;
+}
+
+textarea, input {
+    @apply resize-none rounded-xl p-2 min-w-[50%]
 }
 
 ::-webkit-scrollbar {
