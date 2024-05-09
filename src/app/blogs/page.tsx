@@ -1,6 +1,6 @@
 import BlogCard from "@/components/BlogCard";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { allDocs } from "contentlayer/generated";
+import { prisma } from "@/lib/db";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -10,6 +10,8 @@ export const metadata: Metadata = {
 }
 
 export default async function Blogs() {
+    const blogs = await prisma.blog.findMany();
+
     return (
         <MaxWidthWrapper className="flex items-center flex-col">
             <Link href={"/"} className="text-6xl md:text-8xl py-7">
@@ -20,8 +22,8 @@ export default async function Blogs() {
                     My Recent Blogs
                 </div>
                 <div className="mt-5 flex flex-col md:gap-6">
-                    {allDocs.map((doc, index) => (
-                        <BlogCard doc={doc} key={index} />
+                    {blogs.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map((blog, index) => (
+                        <BlogCard blog={blog} key={index} />
                     ))}
                 </div>
             </div>

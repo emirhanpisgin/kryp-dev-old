@@ -1,43 +1,43 @@
 "use client";
 import { timePassed } from "@/utils";
-import { Doc } from "contentlayer/generated";
 import Link from "next/link";
 import { PencilIcon, ClockIcon } from "./Icons";
 import { useEffect, useState } from "react";
+import { Blog } from "@prisma/client";
 
 interface BlogCardProps {
-    doc: Doc;
+    blog: Blog;
 }
 
-export default function BlogCard({ doc }: BlogCardProps) {
-    const [timeStamp, setTimeStamp] = useState("");
+export default function BlogCard({ blog }: BlogCardProps) {
+    const [timeStamp, setTimeStamp] = useState(timePassed(blog.createdAt));
 
     useEffect(() => {
-        setTimeStamp(timePassed(new Date(doc.createdAt)));
-    }, [doc.createdAt])
+        setTimeStamp(timePassed(blog.createdAt));
+    }, [blog.createdAt]);
 
     return (
-        <Link href={doc.slug} className="border-b-2 p-3 md:rounded-xl md:border-2 gap-2 md:gap-3 flex flex-col first:border-t-2 hover:shadow-[0_0_10px_#ffffff] transition-shadow duration-300">
+        <Link href={"blogs/" + blog.id} className="border-b-2 p-3 md:rounded-xl md:border-2 gap-2 md:gap-3 flex flex-col first:border-t-2 hover:shadow-[0_0_10px_#ffffff] transition-shadow duration-300">
             <div className="text-xl md:text-2xl leading-7 md:leading-normal">
-                {doc.title}
+                {blog.title}
             </div>
             <div className="whitespace-pre-wrap text-lg md:text-xl leading-6 md:leading-normal">
-                {doc.description}
+                {blog.description}
             </div>
             <div className="flex justify-between">
                 <div className="flex items-center">
                     <PencilIcon className="size-5 mr-1" />
                     <div>
-                        {doc.author}
+                        {blog.author}
                     </div>
                 </div>
                 <div className="flex items-center">
                     <ClockIcon className="size-5 mr-1" />
-                    {timeStamp ?? timePassed(new Date(doc.createdAt))}
+                    {timeStamp ?? timePassed(blog.createdAt)}
                 </div>
             </div>
-            {doc.tags?.length && <div className="flex gap-3">
-                {doc.tags.split(" ").map((tag, index) => (
+            {blog.tags?.length && <div className="flex gap-3">
+                {blog.tags.map((tag, index) => (
                     <div key={index} className="p-1 text-sm md:text-base rounded-xl">
                         {tag}
                     </div>
