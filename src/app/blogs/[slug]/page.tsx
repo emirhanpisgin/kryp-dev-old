@@ -2,9 +2,13 @@ import { ClockIcon, LeftArrowIcon, PencilIcon } from "@/components/Icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Mdx from "@/components/Mdx";
 import { prisma } from "@/lib/db";
+import { serialize } from "next-mdx-remote/serialize";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Balancer from "react-wrap-balancer";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 async function getBlogFromId(id: string) {
     const blog = await prisma.blog.findFirst({
@@ -37,6 +41,29 @@ export async function generateStaticParams() {
 
 export default async function Blog({ params }: { params: { slug: string } }) {
     const blog = await getBlogFromId(params.slug);
+    const content = (await serialize(blog.content, {
+        mdxOptions: {
+            rehypePlugins: [
+                rehypeSlug,
+                [
+                    //@ts-expect-error
+                    rehypePrettyCode,
+                    {
+                        theme: "github-dark"
+                    },
+                ],
+                [
+                    rehypeAutolinkHeadings,
+                    {
+                        properties: {
+                            className: ["subheading-anchor"],
+                            ariaLabel: "Link to section",
+                        },
+                    },
+                ],
+            ],
+        }
+    })).compiledSource;
 
     return (
         <MaxWidthWrapper className="pt-6 md:pt-16 flex items-start px-5 pb-64">
@@ -64,7 +91,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                     </div>
                 </div>
             </div>
-            <Mdx content={blog.content} />
+            <Mdx content={content} />
         </MaxWidthWrapper>
     );
 }
