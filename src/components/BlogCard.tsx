@@ -7,6 +7,7 @@ import Balancer from "react-wrap-balancer";
 import Link from "next/link";
 import { useDialog } from "./context/DialogContext";
 import CheckForm from "./CheckForm";
+import Image from "next/image";
 
 interface BlogCardProps {
     blog: Blog;
@@ -45,7 +46,7 @@ export default function BlogCard({ blog: { author, createdAt, description, id, t
             <div className="flex items-center justify-between mt-2 text-lg font-medium">
                 <div className="flex items-center w-full">
                     <div className="flex-1 whitespace-nowrap items-center flex gap-2">
-                        <img src="pp.jpg" alt="Profile" className="rounded-full size-8" />
+                        <Image src="/pp.jpg" alt="Profile" className="rounded-full size-8" width={270} height={270} />
                         {author}
                     </div>
                     {!dashboard && (

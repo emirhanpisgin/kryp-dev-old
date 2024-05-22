@@ -10,7 +10,7 @@ export default function CheckForm({ id, title }: { id: string, title: string }) 
     return (
         <div className="bg-black p-3 text-2xl rounded-lg text-center">
             <Balancer>
-                Wanna delete the blog titled "{title}"?
+                Wanna delete the blog titled {`"${title}"`}?
             </Balancer>
             <div className="flex justify-end gap-3">
                 <div className="bg-green-500 px-2 py-1 rounded-lg cursor-pointer" onClick={async () => {
