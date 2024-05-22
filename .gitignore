@@ -16,7 +16,7 @@
 # production
 /build
 /.contentlayer
-src/app/new
+src/app/dashboard
 
 # misc
 .DS_Store
