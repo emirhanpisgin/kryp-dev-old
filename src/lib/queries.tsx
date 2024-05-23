@@ -20,7 +20,7 @@ const components = {
         <p className={cn("text-xl my-3 w-full", className)} {...props} />
     ),
     pre: ({ className, ...props }: React.ComponentProps<'pre'>) => (
-        <pre className={cn("rounded-lg my-2 p-4", className)} {...props} />
+        <pre className={cn("rounded-lg my-2 p-4 whitespace-pre-wrap", className)} {...props} />
     ),
     li: ({ className, ...props }: React.ComponentProps<'li'>) => (
         <li className={cn("text-xl", className)} {...props} />
