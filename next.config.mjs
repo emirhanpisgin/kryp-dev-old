@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	reactStrictMode: false,
-	experimental: {
-		serverMinification: false,
-	},
+	reactStrictMode: false
 };
 
 export default nextConfig;
