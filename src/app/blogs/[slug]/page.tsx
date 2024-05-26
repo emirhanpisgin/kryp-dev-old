@@ -1,7 +1,7 @@
 import { ClockIcon, LeftArrowIcon, PencilIcon } from "@/components/Icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { prisma } from "@/lib/db";
-import { getMDX } from "@/lib/queries";
+import { getMDX } from "@/lib/mdx";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Balancer from "react-wrap-balancer";

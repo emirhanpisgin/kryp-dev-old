@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/utils";
+import { cn } from "@/lib/utils";
 import React, { useEffect, useRef } from "react";
 
 interface TypeWriterProps extends React.ComponentProps<'div'> {
@@ -52,7 +52,7 @@ export default function TypeWriter({ text, duration, onWritingEnd, className, ..
                 onWritingEnd();
             }, duration * 1000);
         }
-    }, [text, duration])
+    }, []);
 
     return (
         <div className={cn("whitespace-pre-wrap flex relative w-min", className)} {...props}>

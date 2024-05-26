@@ -1,4 +1,4 @@
-import { cn } from "@/utils";
+import { cn } from "@/lib/utils";
 import { ComponentProps, ReactNode } from "react";
 
 interface MaxWidthWrapperProps extends ComponentProps<'div'> {

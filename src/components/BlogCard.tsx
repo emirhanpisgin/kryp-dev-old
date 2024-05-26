@@ -1,5 +1,5 @@
 "use client";
-import { timePassed } from "@/utils";
+import { timePassed } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Blog } from "@prisma/client";
 import { ClockIcon, DeleteBlogIcon, LeftArrowIcon, PencilIcon } from "./Icons";
