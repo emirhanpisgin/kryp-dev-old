@@ -4,7 +4,8 @@ import { useDialog } from "@/components/context/DialogContext";
 import { CrossIcon, EyeIcon, LoadingIcon } from "@/components/Icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import TagSelector from "@/components/TagSelector";
-import { addBlog, editBlog, getMDX } from "@/lib/queries";
+import { addBlog, editBlog } from "@/lib/queries";
+import { getMDX } from "@/lib/mdx";
 import { Blog } from "@prisma/client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -116,7 +117,7 @@ export default function NewBlogForm({ blog }: { blog?: Blog }) {
                     </div>
                     <div className="flex flex-col gap-3 flex-1 font-normal">
                         Content
-                        <TextareaAutosize defaultValue={content} spellCheck={false} className="text-2xl min-h-[calc(100vh-2rem)] mb-4 mt-2" onChange={(e) => setContent(e.target.value)} />
+                        <TextareaAutosize defaultValue={content} spellCheck={false} className="text-2xl min-h-[calc(100vh-2rem)] max-h-[calc(100vh-2rem)] mb-4 mt-2 overflow-x-auto" onChange={(e) => setContent(e.target.value)} />
                     </div>
                 </div>
             </div>
