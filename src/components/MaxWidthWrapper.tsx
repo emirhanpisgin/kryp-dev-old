@@ -5,8 +5,8 @@ interface MaxWidthWrapperProps extends ComponentProps<'div'> {
     children: ReactNode
 }
 
-export default function MaxWidthWrapper({ children, className, ...props }: MaxWidthWrapperProps) {
+export default function MaxWidthWrapper({ className, ...props }: MaxWidthWrapperProps) {
     return (
-        <div className={cn("w-full md:w-10/12 lg:w-9/12 flex flex-col items-center", className)} {...props}>{children}</div>
+        <div className={cn("w-full md:w-10/12 lg:w-9/12 flex flex-col items-center", className)} {...props} />
     );
 }
