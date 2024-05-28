@@ -5,7 +5,7 @@ export type DialogContextType = {
     setDialogComponent: Dispatch<SetStateAction<JSX.Element | undefined>>;
     isVisible: boolean;
     clearDialog: () => void;
-}
+};
 
 const DialogContext = createContext<DialogContextType | undefined>(undefined);
 
@@ -25,7 +25,14 @@ export const DialogProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     return (
-        <DialogContext.Provider value={{ dialogComponent, setDialogComponent, isVisible, clearDialog }}>
+        <DialogContext.Provider
+            value={{
+                dialogComponent,
+                setDialogComponent,
+                isVisible,
+                clearDialog,
+            }}
+        >
             {children}
         </DialogContext.Provider>
     );
@@ -35,7 +42,7 @@ export function useDialog() {
     const context = useContext(DialogContext);
 
     if (context === undefined) {
-        throw new Error('useDialog must be used within a DialogProvider');
+        throw new Error("useDialog must be used within a DialogProvider");
     }
 
     return context;

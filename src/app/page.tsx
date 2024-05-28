@@ -1,8 +1,7 @@
 "use client";
 
-import { DiscordIcon, GithubIcon, TwitchIcon, YoutubeIcon } from "@/components/Icons";
-import Topbar from "@/components/Topbar";
-import TypeWriter from "@/components/TypeWriter";
+import { DiscordIcon, GithubIcon, TwitchIcon, YoutubeIcon } from "@/components/ui/icons";
+import TypeWriter from "@/components/util/typewriter";
 import Link from "next/link";
 import { useRef } from "react";
 
@@ -14,24 +13,24 @@ export default function Home() {
         {
             title: "Twitch",
             url: "https://twitch.tv/kryparnold",
-            iconComponent: TwitchIcon
+            iconComponent: TwitchIcon,
         },
         {
             title: "Discord",
             url: "https://discord.gg/arnold",
-            iconComponent: DiscordIcon
+            iconComponent: DiscordIcon,
         },
         {
             title: "Github",
             url: "https://github.com/kryparnold",
-            iconComponent: GithubIcon
+            iconComponent: GithubIcon,
         },
         {
             title: "Youtube",
             url: "https://www.youtube.com/channel/UC_Qf0YHNFWhnW_1BknnKCpQ",
-            iconComponent: YoutubeIcon
-        }
-    ]
+            iconComponent: YoutubeIcon,
+        },
+    ];
 
     function onWritingEnd() {
         if (!linksRef.current || !blogsRef.current) return;
@@ -53,13 +52,26 @@ export default function Home() {
     }
 
     return (
-        <main className="grid place-items-center h-screen bg-inherit">
-            <Topbar />
-            <div className="flex flex-col gap-5 items-center">
-                <TypeWriter text="Kryp.Dev" duration={0.9} onWritingEnd={onWritingEnd} className="text-6xl md:text-8xl select-none" />
-                <div ref={linksRef} className="flex gap-8 justify-evenly max-h-0 h-auto duration-[3s] transition-max-height">
+        <main className="grid flex-1 place-items-center bg-inherit">
+            <div className="flex flex-col items-center gap-5">
+                <TypeWriter
+                    text="Kryp Arnold"
+                    duration={0.9}
+                    onWritingEnd={onWritingEnd}
+                    className="select-none text-6xl md:text-8xl"
+                />
+                <div
+                    ref={linksRef}
+                    className="transition-max-height flex h-auto max-h-0 justify-evenly gap-8 duration-[3s]"
+                >
                     {links.map((link, index) => (
-                        <div key={index} style={{ transitionDelay: `${(index + 1) * 200}ms` }} className="border-2 p-3 border-black dark:border-white -translate-y-1/3 rounded-xl cursor-pointer duration-500 hover:animate-shake opacity-0 transition-[transform,opacity]">
+                        <div
+                            key={index}
+                            style={{
+                                transitionDelay: `${(index + 1) * 200}ms`,
+                            }}
+                            className="-translate-y-1/3 cursor-pointer rounded-xl border-2 border-black p-3 opacity-0 transition-[transform,opacity] duration-500 hover:animate-shake dark:border-white"
+                        >
                             <a href={link.url} target="_blank">
                                 <link.iconComponent className="size-8 md:size-12" />
                             </a>
@@ -67,7 +79,13 @@ export default function Home() {
                     ))}
                 </div>
                 <div className="text-2xl opacity-0 transition-opacity delay-1000 duration-500" ref={blogsRef}>
-                    Wanna check out my <Link className="text-blue-400 underline decoration-transparent hover:decoration-current transition-colors duration-300" href={"/blogs"}>blogs?</Link>
+                    Wanna check out my{" "}
+                    <Link
+                        className="text-blue-400 underline decoration-transparent transition-colors duration-300 hover:decoration-current"
+                        href={"/blogs"}
+                    >
+                        blogs?
+                    </Link>
                 </div>
             </div>
         </main>

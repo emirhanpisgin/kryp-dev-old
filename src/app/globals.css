@@ -3,26 +3,26 @@
 @tailwind utilities;
 
 body {
-	@apply flex flex-col items-center w-full bg-white text-black dark:bg-black dark:text-white overflow-x-hidden;
+    @apply flex h-screen min-h-screen w-full flex-col items-center overflow-x-hidden bg-white text-black dark:bg-black dark:text-white;
 }
 
 * {
-	@apply border-slate-300 dark:border-gray-600;
+    @apply border-slate-300 dark:border-gray-600;
 }
 
 textarea,
 input {
-	@apply resize-none rounded-lg p-2 min-w-[50%];
+    @apply min-w-[50%] resize-none rounded-lg p-2;
 }
 
 ::-webkit-scrollbar {
-	@apply w-2 rounded-lg;
+    @apply w-2 rounded-lg;
 }
 
 ::-webkit-scrollbar-track {
-	@apply bg-white dark:bg-black;
+    @apply bg-white dark:bg-black;
 }
 
 ::-webkit-scrollbar-thumb {
-	@apply bg-black dark:bg-white rounded-lg;
+    @apply rounded-lg bg-black dark:bg-white;
 }

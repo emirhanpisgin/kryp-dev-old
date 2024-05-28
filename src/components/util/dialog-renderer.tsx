@@ -1,4 +1,4 @@
-import { useDialog } from "./context/DialogContext";
+import { useDialog } from "../context/DialogContext";
 import { useRef } from "react";
 
 export default function DialogRenderer() {
@@ -9,14 +9,14 @@ export default function DialogRenderer() {
         if (e.target === dialogRef.current) {
             clearDialog();
         }
-    };
+    }
 
     return (
         <div
-            className={`h-screen w-screen absolute top-0 left-0 pointer-events-none transition-opacity duration-300 ${isVisible ? "pointer-events-auto opacity-100" : "opacity-0 pointer-events-none"}`}
+            className={`pointer-events-none absolute left-0 top-0 h-screen w-screen transition-opacity duration-300 ${isVisible ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
             onClick={(e) => handleClick(e)}
         >
-            <div ref={dialogRef} className="bg-black/50 grid place-items-center h-full w-full">
+            <div ref={dialogRef} className="grid h-full w-full place-items-center bg-black/50">
                 {dialogComponent}
             </div>
         </div>

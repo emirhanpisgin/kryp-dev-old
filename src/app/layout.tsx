@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Ubuntu_Mono } from "next/font/google";
 import "./globals.css";
-import { Providers } from "@/components/Providers";
+import { Providers } from "../components/util/providers";
+import Navbar from "./navbar";
 
 const ubuntuMono = Ubuntu_Mono({ weight: "400", subsets: ["latin"] });
 
@@ -17,8 +18,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={ubuntuMono.className}>
+            <body className={ubuntuMono.className} suppressHydrationWarning>
                 <Providers>
+                    <Navbar />
                     {children}
                 </Providers>
             </body>
