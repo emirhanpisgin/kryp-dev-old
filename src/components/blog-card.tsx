@@ -5,7 +5,7 @@ import { Blog } from "@prisma/client";
 import { ClockIcon, DeleteBlogIcon, LeftArrowIcon, PencilIcon } from "./ui/icons";
 import Link from "next/link";
 import { useDialog } from "./context/DialogContext";
-import CheckForm from "../app/dashboard/check-form";
+import CheckForm from "./check-form";
 import Image from "next/image";
 
 interface BlogCardProps {
