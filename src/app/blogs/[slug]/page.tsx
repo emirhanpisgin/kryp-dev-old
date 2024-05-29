@@ -3,7 +3,6 @@ import { prisma } from "@/lib/db";
 import { getMDX } from "@/lib/mdx";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import Balancer from "react-wrap-balancer";
 
 async function getBlogFromId(id: string) {
     const blog = await prisma.blog.findFirst({
@@ -55,8 +54,8 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                     <div className="text-xl opacity-50">{createdAt.toLocaleDateString("tr")}</div>
                 </div>
                 <div className="flex flex-col items-center py-9 md:py-16">
-                    <Balancer className="text-center text-3xl font-semibold md:text-7xl">{title}</Balancer>
-                    <Balancer className="py-3 text-center text-2xl font-medium md:text-3xl">{description}</Balancer>
+                    <div className="text-center text-3xl text-balance font-semibold md:text-7xl">{title}</div>
+                    <div className="py-3 text-center text-2xl text-balance font-medium md:text-3xl">{description}</div>
                     {tags.length && (
                         <div className="flex flex-wrap justify-center gap-2 text-sm">
                             {tags.map((tag, index) => (
