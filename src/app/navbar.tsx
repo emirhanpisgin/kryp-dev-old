@@ -15,10 +15,10 @@ export default function Navbar() {
                 </Link>
                 <div className="flex h-full flex-1 items-center justify-end space-x-4 text-2xl md:justify-start">
                     <div className="hidden space-x-4 text-2xl md:block">
-                        <Link className="hover:underline" href={"/"}>
+                        <Link className="decoration-transparent hover:decoration-inherit underline transition-colors" href={"/"}>
                             Home
                         </Link>
-                        <Link className="hover:underline" href={"/blogs"}>
+                        <Link className="decoration-transparent hover:decoration-inherit underline transition-colors" href={"/blogs"}>
                             Blogs
                         </Link>
                     </div>
@@ -48,10 +48,10 @@ export default function Navbar() {
             <div
                 className={`absolute left-0 top-full z-50 flex max-h-0 w-screen flex-col overflow-hidden border-t-2 bg-white text-3xl opacity-0 transition-[max-height,opacity] duration-300 *:border-b-2 *:p-5 dark:bg-black ${isOpen && "max-h-[50vh] opacity-100"}`}
             >
-                <Link onClick={() => setOpen(false)} className="hover:underline" href={"/"}>
+                <Link onClick={() => setOpen(false)} className="decoration-transparent hover:decoration-inherit underline transition-colors" href={"/"}>
                     Home
                 </Link>
-                <Link onClick={() => setOpen(false)} className="hover:underline" href={"/blogs"}>
+                <Link onClick={() => setOpen(false)} className="decoration-transparent hover:decoration-inherit underline transition-colors" href={"/blogs"}>
                     Blogs
                 </Link>
             </div>
