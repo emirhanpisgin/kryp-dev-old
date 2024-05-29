@@ -6,6 +6,7 @@ import remarkRehype from "remark-rehype";
 import rehypeReact from "rehype-react";
 import * as prod from "react/jsx-runtime";
 import { unified } from "unified";
+import React from "react";
 
 const components = {
     h1: ({ className, ...props }: React.ComponentProps<"h1">) => (
@@ -21,10 +22,11 @@ const components = {
         <p className={cn("my-3 w-full text-xl", className)} {...props} />
     ),
     pre: ({ className, ...props }: React.ComponentProps<"pre">) => (
-        <pre className={cn("my-2 whitespace-pre-wrap rounded-lg p-4 w-max", className)} {...props} />
+        <pre className={cn("my-2 whitespace-pre-wrap rounded-lg p-4", className)} {...props} />
     ),
     li: ({ className, ...props }: React.ComponentProps<"li">) => <li className={cn("text-xl", className)} {...props} />,
     ol: ({ className, ...props }: React.ComponentProps<"ol">) => <ol className={cn("my-2", className)} {...props} />,
+    figure: ({ className, ...props }: React.ComponentProps<"figure">) => <figure className={cn("w-fit", className)} {...props} />
 };
 
 export async function getMDX(content: string) {
