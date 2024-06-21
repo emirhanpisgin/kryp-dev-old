@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "5.13.0",
     "clsx": "^2.1.1",
+    "drizzle-orm": "^0.31.2",
     "next": "^14.2.3",
     "next-themes": "^0.3.0",
-    "prisma": "^5.13.0",
+    "postgres": "^3.4.4",
     "react": "^18",
     "react-dom": "^18",
     "react-textarea-autosize": "^8.5.3",
@@ -33,6 +33,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-textarea-autosize": "^8.0.0",
+    "drizzle-kit": "^0.22.7",
     "eslint": "^8",
     "eslint-config-next": "14.2.2",
     "postcss": "^8",

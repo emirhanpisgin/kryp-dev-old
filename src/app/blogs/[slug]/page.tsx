@@ -1,15 +1,13 @@
 import MaxWidthWrapper from "@/components/util/max-width-wrapper";
-import { prisma } from "@/lib/db";
 import { getMDX } from "@/lib/mdx";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { db } from "@/lib/db";
+import { blogs as blogSchema } from "@/lib/db/schema";
+import { eq } from "drizzle-orm";
 
 async function getBlogFromId(id: string) {
-    const blog = await prisma.blog.findFirst({
-        where: {
-            id,
-        },
-    });
+    const [blog] = await db.select().from(blogSchema).where(eq(blogSchema.id, id));
 
     if (!blog) notFound();
 
@@ -26,7 +24,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export async function generateStaticParams() {
-    const blogs = await prisma.blog.findMany();
+    const blogs = await db.select().from(blogSchema);
 
     return blogs.map((blog) => ({
         slug: blog.id,
@@ -51,7 +49,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                         />
                         {author}
                     </div>
-                    <div className="text-xl opacity-50">{createdAt.toLocaleDateString("tr")}</div>
+                    <div className="text-xl opacity-50">{new Date(createdAt).toLocaleDateString("tr")}</div>
                 </div>
                 <div className="flex flex-col items-center py-9 md:py-16">
                     <div className="text-center text-3xl text-balance font-semibold md:text-7xl">{title}</div>

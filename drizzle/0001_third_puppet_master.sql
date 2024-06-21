@@ -1,0 +1,1 @@
+ALTER TABLE "blog" ALTER COLUMN "tags" SET NOT NULL;

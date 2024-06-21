@@ -1,15 +1,13 @@
 "use client";
 import { timePassed } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import { Blog } from "@prisma/client";
-import { ClockIcon, DeleteBlogIcon, LeftArrowIcon, PencilIcon } from "./ui/icons";
+import { ClockIcon, LeftArrowIcon } from "./ui/icons";
 import Link from "next/link";
-import { useDialog } from "./context/DialogContext";
-import CheckForm from "./check-form";
 import Image from "next/image";
+import { blogType } from "@/lib/db/schema";
 
 interface BlogCardProps {
-    blog: Blog;
+    blog: blogType;
     dashboard?: boolean;
 }
 
@@ -17,11 +15,10 @@ export default function BlogCard({
     blog: { author, createdAt, description, id, tags, title },
     dashboard = false,
 }: BlogCardProps) {
-    const [timeStamp, setTimeStamp] = useState(timePassed(createdAt));
-    const { setDialogComponent } = useDialog();
+    const [timeStamp, setTimeStamp] = useState(timePassed(new Date(createdAt)));
 
     useEffect(() => {
-        setTimeStamp(timePassed(createdAt));
+        setTimeStamp(timePassed(new Date(createdAt)));
     }, [createdAt]);
 
     return (
@@ -59,22 +56,6 @@ export default function BlogCard({
                         </Link>
                     )}
                 </div>
-                {dashboard && (
-                    <div className="flex gap-2">
-                        <Link
-                            href={`/dashboard/edit/${id}`}
-                            className="rounded-lg bg-gray-600 p-2 transition-colors hover:text-blue-500"
-                        >
-                            <PencilIcon className="size-6" />
-                        </Link>
-                        <div
-                            className="cursor-pointer rounded-lg bg-gray-600 p-2 transition-colors hover:text-red-700"
-                            onClick={() => setDialogComponent(<CheckForm id={id} title={title} />)}
-                        >
-                            <DeleteBlogIcon className="size-6" />
-                        </div>
-                    </div>
-                )}
             </div>
         </div>
     );
